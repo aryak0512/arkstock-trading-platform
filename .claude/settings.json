@@ -30,6 +30,8 @@
       "Edit(package.json)",
       "Edit(README.md)"
     ],
+
     "defaultMode": "default"
+
   }
 }

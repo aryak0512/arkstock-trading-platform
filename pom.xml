@@ -18,7 +18,7 @@
     <description>India's No.1 Stock Trading Platform - Real-time Simulation</description>
 
     <properties>
-        <java.version>25</java.version>
+        <java.version>21</java.version>
     </properties>
 
     <dependencies>

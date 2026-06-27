@@ -2,7 +2,13 @@
 
 **India's No.1 Stock Trading Platform** — a real-time stock market simulation dashboard built with Spring Boot WebFlux and vanilla JavaScript.
 
-![Java](https://img.shields.io/badge/Java-25-blue) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.3-brightgreen) ![WebFlux](https://img.shields.io/badge/Reactive-WebFlux-blue)
+![Java](https://img.shields.io/badge/Java-25-blue) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.0-brightgreen) ![WebFlux](https://img.shields.io/badge/Reactive-WebFlux-blue)
+
+---
+
+## Screenshot
+
+![ArkStock Dashboard](docs/screenshot.png)
 
 ---
 
@@ -22,7 +28,7 @@
 
 | Layer | Technology |
 |---|---|
-| Backend | Spring Boot 3.5.3, Spring WebFlux, Project Reactor |
+| Backend | Spring Boot 4.1.0, Spring WebFlux, Project Reactor |
 | Streaming | Server-Sent Events (SSE) |
 | Frontend | HTML5, CSS3 (custom properties), Vanilla JS, Canvas API |
 | Font | Inter (Google Fonts) |

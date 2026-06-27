@@ -1,19 +1,35 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
-      "Bash(npm run lint)",
-      "Bash(npm run test *)",
-      "Read(~/.zshrc)"
+      "Bash(git -C * status)",
+      "Bash(git add *)",
+      "Bash(npm run *)",
+      "Bash(pnpm *)",
+      "Bash(yarn *)",
+      "Write(tests/**)",
+      "WebFetch(domain:*.npmjs.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:registry.npmjs.org)"
     ],
     "deny": [
-      "Bash(curl *)",
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./secrets/**)"
-    ]
-  },
-  "companyAnnouncements": [
-    "Welcome to Aryak's world!"
-  ]
+      "Read(**/secrets/**)",
+      "Read(**/*.key)",
+      "Read(**/*.pem)",
+      "Edit(**/.env*)",
+      "Write(**/.env*)",
+      "Bash(rm *)",
+      "Bash(sudo *)",
+      "Bash(chmod 777 *)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(git pull --rebase *)",
+      "Bash(git push --force *)",
+      "Bash(npm publish *)",
+      "Bash(docker push *)",
+      "Edit(package.json)",
+      "Edit(README.md)"
+    ],
+    "defaultMode": "default"
+  }
 }

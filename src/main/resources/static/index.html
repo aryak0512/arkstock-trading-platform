@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArkStock — India's No.1 Stock Trading Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header class="header">
+    <div class="header-left">
+        <div class="logo">
+            <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="10" fill="url(#logoGrad)"/>
+                <path d="M8 28L16 16L22 22L30 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="30" cy="10" r="3" fill="white"/>
+                <defs>
+                    <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
+                        <stop offset="0%" stop-color="#3b82f6"/>
+                        <stop offset="100%" stop-color="#1d4ed8"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <div class="logo-text-group">
+                <span class="logo-name">ArkStock</span>
+                <span class="logo-tagline">India's No.1 Stock Trading Platform</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-center" id="header-indices">
+        <!-- Populated by JS -->
+    </div>
+
+    <div class="header-right">
+        <div class="market-status-badge" id="market-badge">
+            <span class="status-pulse"></span>
+            <span id="market-status-text">MARKET OPEN</span>
+        </div>
+        <div class="clock" id="clock">--:--:-- IST</div>
+        <button class="theme-toggle" id="theme-toggle" title="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </button>
+    </div>
+</header>
+
+<!-- ════════════════════ INDICES TICKER ════════════════════ -->
+<div class="ticker-bar">
+    <div class="ticker-label">LIVE</div>
+    <div class="ticker-overflow">
+        <div class="ticker-track" id="ticker-track">
+            <!-- Populated by JS, duplicated for seamless loop -->
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════ MAIN CONTENT ══════════════════════ -->
+<main class="main">
+
+    <!-- Portfolio Summary -->
+    <section class="summary-row">
+        <div class="summary-card card">
+            <div class="summary-label">Portfolio Value</div>
+            <div class="summary-value" id="portfolio-value">₹—</div>
+            <div class="summary-sub neutral" id="portfolio-invested">Invested: ₹—</div>
+        </div>
+        <div class="summary-card card">
+            <div class="summary-label">Day's P&amp;L</div>
+            <div class="summary-value" id="day-pnl">₹—</div>
+            <div class="summary-sub" id="day-pnl-pct">—%</div>
+        </div>
+        <div class="summary-card card">
+            <div class="summary-label">Total Returns</div>
+            <div class="summary-value" id="total-returns">₹—</div>
+            <div class="summary-sub" id="total-returns-pct">—%</div>
+        </div>
+        <div class="summary-card card">
+            <div class="summary-label">Active Positions</div>
+            <div class="summary-value neutral" id="positions-count">10</div>
+            <div class="summary-sub neutral">NSE / BSE Listed</div>
+        </div>
+    </section>
+
+    <!-- Dashboard Grid -->
+    <section class="dashboard-grid">
+
+        <!-- Watchlist -->
+        <div class="card watchlist-card">
+            <div class="card-header">
+                <h2 class="card-title">Market Watchlist</h2>
+                <div class="live-badge">
+                    <span class="live-dot"></span>
+                    LIVE
+                </div>
+            </div>
+            <div class="table-wrap">
+                <table class="stock-table">
+                    <thead>
+                        <tr>
+                            <th class="col-rank">#</th>
+                            <th class="col-stock">Stock</th>
+                            <th class="col-price">LTP</th>
+                            <th class="col-change">Chg</th>
+                            <th class="col-pct">Chg%</th>
+                            <th class="col-vol">Volume</th>
+                            <th class="col-hl">H / L</th>
+                            <th class="col-chart">Chart</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stock-tbody">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Sidebar: Movers + Breadth -->
+        <aside class="sidebar">
+
+            <div class="card movers-card">
+                <div class="card-header">
+                    <h3 class="card-title">Top Gainers</h3>
+                    <span class="badge badge-green">Today</span>
+                </div>
+                <div id="top-gainers" class="movers-list"></div>
+            </div>
+
+            <div class="card movers-card">
+                <div class="card-header">
+                    <h3 class="card-title">Top Losers</h3>
+                    <span class="badge badge-red">Today</span>
+                </div>
+                <div id="top-losers" class="movers-list"></div>
+            </div>
+
+            <div class="card breadth-card">
+                <div class="card-header">
+                    <h3 class="card-title">Market Breadth</h3>
+                </div>
+                <div class="breadth-bar-wrap">
+                    <div class="breadth-bar">
+                        <div class="breadth-advance" id="breadth-advance" style="width:50%"></div>
+                        <div class="breadth-decline" id="breadth-decline" style="width:50%"></div>
+                    </div>
+                </div>
+                <div class="breadth-labels">
+                    <span class="positive" id="advance-count">Advances: —</span>
+                    <span class="negative" id="decline-count">Declines: —</span>
+                </div>
+            </div>
+
+        </aside>
+    </section>
+</main>
+
+<!-- ════════════════════════ FOOTER ════════════════════════ -->
+<footer class="footer">
+    <div class="footer-left">
+        <span>© 2024 ArkStock Trading Platform Pvt. Ltd.</span>
+        <span class="footer-sep">•</span>
+        <span>SEBI Registered &nbsp;|&nbsp; NSE &amp; BSE Member</span>
+        <span class="footer-sep">•</span>
+        <span>Simulation only — not real trading advice</span>
+    </div>
+    <div class="footer-right">
+        <span class="conn-dot" id="conn-dot"></span>
+        <span id="conn-status">Connecting…</span>
+    </div>
+</footer>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
